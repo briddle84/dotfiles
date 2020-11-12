@@ -94,7 +94,7 @@ alias l='ls -CF'
 
 alias rm='rm -i'
 alias v='flatpak run io.neovim.nvim -u .config/nvim/init.vim'
-alias e='flatpak run org.gnu.emacs -nw'
+alias e='emacsclient -t'
 alias qb="qutebrowser"
 
 # Task Warrior Aliases
