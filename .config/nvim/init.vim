@@ -62,6 +62,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'vimwiki/vimwiki'
 Plug 'kien/ctrlp.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -76,6 +77,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Initialize plugin system
 call plug#end()
+colorscheme dracula
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
