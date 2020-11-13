@@ -92,7 +92,11 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
+# a safer rm remove
 alias rm='rm -i'
+alias RM='rm -r -I'
+
+
 alias v='flatpak run io.neovim.nvim -u .config/nvim/init.vim'
 alias e='emacsclient -t'
 alias qb="qutebrowser"
@@ -101,6 +105,8 @@ alias qb="qutebrowser"
 alias in='task add proj:inbox'
 alias ta='task add'
 alias tm='task mod'
+
+# dotfile git repo
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Alias definitions.
@@ -138,3 +144,11 @@ esac
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# shortcut for org bujo no argument opens today
+# use gnu date arguments such as "yesterday" or "next monday"
+bujo(){
+bujo_date=$(date  --date="$1" +"%Y-%m-%d")
+bujo_file=$"$HOME/org/$bujo_date.org"
+emacsclient -t $bujo_file
+}
