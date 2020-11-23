@@ -11,6 +11,9 @@ HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoreboth
 
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -t'
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -78,7 +81,7 @@ fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -ga --color=auto'
+    alias ls='ls -a --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -94,10 +97,10 @@ alias l='ls -CF'
 
 # a safer rm remove
 alias rm='rm -i'
-alias RM='rm -r -I'
 
 
-alias v='flatpak run io.neovim.nvim -u .config/nvim/init.vim'
+
+alias v='nvim'
 alias e='emacsclient -t'
 alias qb="qutebrowser"
 
@@ -152,3 +155,6 @@ bujo_date=$(date  --date="$1" +"%Y-%m-%d")
 bujo_file=$"$HOME/org/$bujo_date.org"
 emacsclient -t $bujo_file
 }
+
+alias nf='less $(rg $HOME/org | fzf)'
+alias ff='xdg-open $(fzf)'

@@ -1,4 +1,4 @@
-set number
+set number relativenumber
 set linebreak
 set showbreak=+++
 set textwidth=100
@@ -61,24 +61,10 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 Plug 'vimwiki/vimwiki'
-Plug 'kien/ctrlp.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" Code to execute when the plugin is lazily loaded on demand
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-autocmd! User goyo.vim echom 'Goyo is now loaded!'
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
+Plug 'jceb/vim-orgmode'
 
 " Initialize plugin system
 call plug#end()
-colorscheme dracula
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
+                    \ 'syntax': 'markdown', 'ext': '.md'}]
